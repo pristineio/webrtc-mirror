@@ -171,7 +171,7 @@ bool VoiceProcessingAudioUnit::Init() {
   input_callback.inputProcRefCon = this;
   result = AudioUnitSetProperty(vpio_unit_,
                                 kAudioOutputUnitProperty_SetInputCallback,
-                                kAudioUnitScope_Global, kInputBus,
+                                kAudioUnitScope_Global, kOutputBus, // kAudioUnitScope_Global only one bus == 0 
                                 &input_callback, sizeof(input_callback));
   if (result != noErr) {
     DisposeAudioUnit();
